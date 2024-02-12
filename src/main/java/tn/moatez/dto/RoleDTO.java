@@ -7,8 +7,8 @@ import tn.moatez.model.Role;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleDTO {
-    private long id ;
+public class RoleDTO extends AbstractEntityDTO{
+    private Long id ;
     private String name ;
     public static RoleDTO mapEntityToDTO(Role entity){
         ModelMapper modelMapper = new ModelMapper();

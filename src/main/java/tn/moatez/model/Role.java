@@ -11,11 +11,16 @@ import tn.moatez.dto.RoleDTO;
 @NoArgsConstructor
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role extends AbstractBaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
+    private Long id ;
     private String name ;
+
+    public Role(String name) {
+        this.name=name;
+    }
+
     public static Role mapDTOtoEntity(RoleDTO dto){
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Role.class);

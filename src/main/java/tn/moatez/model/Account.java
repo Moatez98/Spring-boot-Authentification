@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Entity
 @Table(name = "account")
-public class Account {
+public class Account extends AbstractBaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;

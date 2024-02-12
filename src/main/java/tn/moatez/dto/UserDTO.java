@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class UserDTO extends AbstractEntityDTO{
     private Long id;
     private String firstname;
     private String lastname;

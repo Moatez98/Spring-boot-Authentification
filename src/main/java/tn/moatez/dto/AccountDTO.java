@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountDTO {
+public class AccountDTO extends AbstractEntityDTO{
     private Long id ;
     private String email;
     private String username ;
