@@ -5,6 +5,8 @@ import jakarta.persistence.Version;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -12,6 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
 public abstract class AbstractBaseEntity implements Serializable {private static final long serialVersionUID = 1L;
 

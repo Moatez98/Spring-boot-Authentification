@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.modelmapper.ModelMapper;
 import org.springframework.format.annotation.DateTimeFormat;
 import tn.moatez.dto.UserDTO;
+import tn.moatez.enums.EGenre;
 
 import java.util.Date;
 
@@ -31,7 +32,8 @@ public class User extends AbstractBaseEntity{
     private Date birthday;
     @Column(nullable = false)
     private String phone_number;
-    private String genre;
+    @Enumerated(EnumType.STRING)
+    private EGenre genre;
     @OneToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     private Account account;
     public static User mapDTOtoEntity(UserDTO dto){
