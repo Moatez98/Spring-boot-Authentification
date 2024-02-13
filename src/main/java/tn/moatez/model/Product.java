@@ -14,7 +14,7 @@ import tn.moatez.dto.ProductDTO;
 @Setter
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product extends AbstractBaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

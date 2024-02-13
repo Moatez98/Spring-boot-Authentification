@@ -79,6 +79,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>springbootauthentification</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

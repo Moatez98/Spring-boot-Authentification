@@ -5,13 +5,18 @@ import org.springframework.lang.NonNullApi;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
+import tn.moatez.model.Account;
+import tn.moatez.repository.AccountRepository;
+import tn.moatez.security.jwt.usersecurity.UserPrinciple;
 
 import java.util.Optional;
 
 public class AuditorAwareImpl implements AuditorAware<String> {
 
     private static final String NOMEN_NESCIO = "N.N.";
+    private  AccountRepository accountRepository;
+
+
 
     @Override
     public Optional<String> getCurrentAuditor() {
@@ -21,7 +26,8 @@ public class AuditorAwareImpl implements AuditorAware<String> {
         || authentication instanceof AnonymousAuthenticationToken){
             return Optional.of(NOMEN_NESCIO);
         }
-        User userPrincipal = (User) authentication.getPrincipal();
+
+        UserPrinciple userPrincipal = (UserPrinciple) authentication.getPrincipal();
         return Optional.ofNullable(userPrincipal.getUsername());
     }
 }

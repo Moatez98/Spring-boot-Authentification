@@ -5,7 +5,7 @@ import org.modelmapper.ModelMapper;
 import tn.moatez.model.Product;
 
 @Data
-public class ProductDTO {
+public class ProductDTO extends AbstractEntityDTO {
     private Long id;
     private String label;
     private String description;

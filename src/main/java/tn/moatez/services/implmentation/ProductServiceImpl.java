@@ -31,7 +31,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO updateProduct(ProductDTO productDTO) {
-        return ProductDTO.mapEntityToDTO(repository.save(Product.mapDTOtoEntity(productDTO)));
+        Product productToupdate = repository.findById(productDTO.getId()).orElse(null);
+        assert productToupdate != null;
+        productToupdate.setDescription(productDTO.getDescription());
+        productToupdate.setLabel(productDTO.getLabel());
+        productToupdate.setPrice(productDTO.getPrice());
+        productToupdate.setQuantite(productDTO.getQuantite());
+
+        return ProductDTO.mapEntityToDTO(repository.save(productToupdate));
     }
 
     @Override
