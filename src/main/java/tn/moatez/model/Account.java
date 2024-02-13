@@ -34,7 +34,7 @@ public class Account extends AbstractBaseEntity{
     public static Account mapDTOtoEntity(AccountDTO dto){
         ModelMapper modelMapper = new ModelMapper();
         Account entity = modelMapper.map(dto, Account.class);
-        if(!dto.getRoleDTO().isEmpty()){
+        if(dto.getRoleDTO()!=null){
             entity.setRoles(dto.getRoleDTO().stream()
                     .map(Role::mapDTOtoEntity).collect(Collectors.toSet()));
         }

@@ -6,12 +6,14 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import tn.moatez.model.Account;
 
+import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 public class UserPrinciple implements UserDetails {
+    @Serial
     private static final long serialVersionUID = 1L;
 
 
@@ -22,12 +24,13 @@ public class UserPrinciple implements UserDetails {
     private boolean enabled;
     private Collection<? extends GrantedAuthority> authorities;
     public UserPrinciple(Long id, String username, String email, String password,
-                         Collection<? extends GrantedAuthority> authorities) {
+                         boolean enabled,Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
+        this.enabled=enabled;
     }
     public static UserPrinciple build(Account account) {
         List<GrantedAuthority> authorities = account.getRoles().stream()
@@ -39,6 +42,7 @@ public class UserPrinciple implements UserDetails {
                 account.getUsername(),
                 account.getEmail(),
                 account.getPassword(),
+                account.isEnabled(),
                 authorities);
     }
     public Long getId() {

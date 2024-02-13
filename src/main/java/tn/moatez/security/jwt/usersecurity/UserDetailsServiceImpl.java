@@ -1,7 +1,6 @@
 package tn.moatez.security.jwt.usersecurity;
 
 import jakarta.transaction.Transactional;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

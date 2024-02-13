@@ -7,6 +7,7 @@ import lombok.*;
 import org.springframework.data.annotation.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -16,7 +17,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public abstract class AbstractBaseEntity implements Serializable {private static final long serialVersionUID = 1L;
+public abstract class AbstractBaseEntity implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @NotNull
     @CreatedBy
